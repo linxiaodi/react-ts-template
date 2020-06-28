@@ -4,6 +4,7 @@ import { Switch, Redirect } from 'react-router-dom'
 import GlobalContext from '@common/global-context'
 import { renderAllRoutes } from '@routes/route-loader'
 import { connect } from 'react-redux'
+import NProgress from 'nprogress'
 // import * as utils from "@/utils";
 
 interface AppProps {
@@ -15,8 +16,22 @@ class App extends React.PureComponent<AppProps> {
     constructor(props) {
         super(props)
         this.globalContext = {}
+        NProgress.start()
     }
 
+    componentWillUpdate() {
+        NProgress.start()
+    }
+
+    componentDidUpdate() {
+        NProgress.done()
+    }
+
+    componentWillUnmount(){
+    }
+    componentDidMount() {
+        NProgress.done()
+    }
     render() {
         const routes = renderAllRoutes(this.props.routes)
         return (

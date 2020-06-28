@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled,{ ThemeProvider } from 'styled-components'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import PropTypes from 'prop-types'
 
