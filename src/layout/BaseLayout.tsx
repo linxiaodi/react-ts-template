@@ -10,7 +10,11 @@ const { Header, Sider, Content } = Layout
 const HeaderStyle = styled(Header)`
     background-color: white;
     padding: 0;
-    height: 84px;
+    height: 50px;
+`
+const ContentStyle = styled.div`
+    display: flex;
+    width: 100%;
 `
 type BaseLayoutProps = {
     routes?: any
@@ -24,7 +28,6 @@ export default class BaseLayout extends React.Component<BaseLayoutProps> {
             collapsed: !this.state.collapsed,
         })
     }
-
     handlerClickMenu({ item, key, keyPath, domEvent }) {
         console.log({ item, key, keyPath, domEvent })
     }
@@ -37,14 +40,17 @@ export default class BaseLayout extends React.Component<BaseLayoutProps> {
         return (
             <Layout style={{ height: '100%' }}>
                 {/* <CollapseContent.Provider></CollapseContent.Provider> */}
-                <SiderBar collapsed={this.state.collapsed}></SiderBar>
                 <Layout>
                     <HeaderStyle>
                         <NavBar collapsed={this.state.collapsed} handleClick={this.toggle}></NavBar>
                     </HeaderStyle>
-                    <Content>
-                        <Switch>{renderAllRoutes(this.props.routes)}</Switch>
-                    </Content>
+                    <Layout>
+                        <SiderBar collapsed={this.state.collapsed}></SiderBar>
+                        <Content>
+                            {/* //todo tabsBar */}
+                            <Switch>{renderAllRoutes(this.props.routes)}</Switch>
+                        </Content>
+                    </Layout>
                 </Layout>
             </Layout>
         )

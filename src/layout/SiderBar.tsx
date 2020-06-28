@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Layout, Menu } from 'antd'
 import { useHistory, matchPath } from 'react-router-dom'
 import SiderRoutes from '@/routes/SiderRoutes'
