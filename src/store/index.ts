@@ -7,13 +7,15 @@ import { RematchRootDispatch, RematchRootState } from '@/d.ts/rematch-store'
 import * as models from './models'
 
 const immer = immerPlugin()
-const loadingOptions = {}
+const loadingOptions = {
+    name: 'loading',
+}
+// 先不管全局loading
 const loading = createLoadingPlugin(loadingOptions)
 
 export type RootState = RematchRootState<typeof models>
 
 export type RootDispatch = RematchRootDispatch<typeof models>
-console.log(models)
 const store = init({
     models,
     plugins: [loading, immer],

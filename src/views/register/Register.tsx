@@ -4,7 +4,7 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router'
 // import { connect } from 'react-redux';
 import { RootState, RootDispatch } from '@/store'
-import { connect } from '@store/connect'
+import { connect } from 'react-redux'
 
 function mapStateToProps(state: RootState) {
     const {

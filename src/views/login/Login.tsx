@@ -4,7 +4,7 @@ import logo from '@assets/images/logo.svg'
 import { RouteComponentProps } from 'react-router'
 
 import { RootDispatch, RootState } from '@/store'
-import { connect } from '@store/connect'
+import { connect } from 'react-redux'
 
 function mapStateToProps(state: RootState) {
     const {
