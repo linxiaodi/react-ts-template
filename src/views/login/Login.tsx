@@ -56,6 +56,7 @@ export default class Login extends React.Component<LoginProps> {
     }
 
     handleAddBtnClick = () => {
+        console.log(this.props)
         this.props.increment()
     }
 

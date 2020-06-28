@@ -2,20 +2,41 @@ import React, { Component, useState, useEffect } from 'react'
 import { Layout, Menu } from 'antd'
 import { useHistory, matchPath } from 'react-router-dom'
 import SiderRoutes from '@/routes/SiderRoutes'
+import { RootState, RootDispatch } from '@/store'
+import { connect } from 'react-redux'
 const { Sider } = Layout
-type propsType = {
-    collapsed: boolean
-}
 
-function SiderBar(props: propsType) {
+function mapStateToProps(state: RootState) {
+    const {
+        global: { tags },
+    } = state
+    return { tags }
+}
+function mapDispatchToProps(dispatch: RootDispatch) {
+    const {
+        global: { ADD_NAV_TAG },
+    } = dispatch
+    return { ADD_NAV_TAG }
+}
+type MapStateFromStoreProps = ReturnType<typeof mapStateToProps>
+type ComponentDispatchProps = ReturnType<typeof mapDispatchToProps>
+type SiderBarProps = {
+    collapsed: boolean
+} & MapStateFromStoreProps &
+    ComponentDispatchProps
+function SiderBar(props: SiderBarProps) {
     const history = useHistory()
     const [menuData, setMenuData] = useState(SiderRoutes)
     useEffect(() => {
         console.log('menuData', menuData)
     }, [menuData])
-    function handlerClickMenu({ key }) {
+    function handlerClickMenu({ key, item }) {
         if (history.location.pathname !== key) {
             history.push(key)
+            props.ADD_NAV_TAG({
+                title: item.node.title,
+                key
+            })
         }
     }
     function renderMenu(menuData: any[]) {
@@ -35,5 +56,5 @@ function SiderBar(props: propsType) {
         </Sider>
     )
 }
-
-export default SiderBar
+export default connect(mapStateToProps, mapDispatchToProps)(SiderBar)
+ 

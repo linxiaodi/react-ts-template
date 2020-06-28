@@ -13,7 +13,7 @@ const loading = createLoadingPlugin(loadingOptions)
 export type RootState = RematchRootState<typeof models>
 
 export type RootDispatch = RematchRootDispatch<typeof models>
-
+console.log(models)
 const store = init({
     models,
     plugins: [loading, immer],

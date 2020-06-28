@@ -2,7 +2,7 @@ module.exports = {
     // tab 缩进大小,默认为 2
     tabWidth: 4,
     // 单行代码最大长度，默认 80
-    printWidth: 100,
+    printWidth: 120,
     // 使用分号, 默认 true
     semi: false,
     // 在语句末尾添加分号，默认 none，可选值 none|es5|all
@@ -13,4 +13,4 @@ module.exports = {
     // avoid 能省略括号的时候就省略 例如 x => x
     // always 总是有括号
     // arrowParens: 'always',
-};
+}

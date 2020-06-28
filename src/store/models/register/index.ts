@@ -34,7 +34,7 @@ export default {
                 }, 1000),
             )
             // 派发 login 里面的 action
-            // dispatch.login.INCREMENT();
+            // dispatch.login.INCREMENT()
             this.INCREMENT()
         },
     }),

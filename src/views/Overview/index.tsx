@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, useReducer } from 'react'
+import { Button } from 'antd';
 
 
 class Overview extends Component {
   render() {
     return (
-      <div>
-        这是概览
-      </div>
-    );
+        <>
+        </>
+    )
   }
 }
 
 
-Overview.propTypes = {
-
-};
 
 
 export default Overview;
