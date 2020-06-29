@@ -39,6 +39,10 @@ export interface RouteConfigDeclaration {
      * 子路由
      */
     routes?: RouteConfigDeclaration[]
+    /**
+     * 是否在侧边栏显示
+     */
+    isNotInMenu?: boolean
 }
 
 export const routesConfig: RouteConfigDeclaration[] = [

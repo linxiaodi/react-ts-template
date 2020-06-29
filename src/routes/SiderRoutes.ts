@@ -3,7 +3,6 @@ import React from 'react'
 const SiderRoutes: RouteConfigDeclaration[] = [
     {
         path: '/overview',
-        // exact: true,
         isDynamic: true,
         name: '概览',
         component: React.lazy(() => import(/* webpackChunkName: "Overview"*/ '@/views/Overview')),
@@ -18,8 +17,25 @@ const SiderRoutes: RouteConfigDeclaration[] = [
     {
         path: '/home',
         isDynamic: true,
+        isNotInMenu: true,
         component: React.lazy(() => import(/* webpackChunkName: "Home"*/ '@/views/Home')),
     },
 ]
+// 获取侧边栏的菜单数据
+export function getMenuData() {
+    const menuData = JSON.parse(JSON.stringify(SiderRoutes))
+    const recursion = (routes: RouteConfigDeclaration[]) => {
+        routes.forEach((v, i) => {
+            if (v.isNotInMenu) {
+                routes.splice(i, 1)
+            }
+            if (v.routes) {
+                recursion(v.routes)
+            }
+        })
+    }
+    recursion(menuData)
+    return menuData
+}
 
 export default SiderRoutes

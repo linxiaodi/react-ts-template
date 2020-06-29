@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { RouteConfigDeclaration } from '@routes/routes-config'
 
 /**
@@ -43,27 +43,13 @@ export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps:
             routes = [],
             loadingFallback,
         } = item
-        /*if (isRedirect) {
-            // 看 Switch 的源码，就知道为什么这里不能这样写了
-            // Switch 里面只能放 Route ，不能放别的，哪怕是 React.Fragment
-            return (<React.Fragment key={path} path={path} exact={exact}>
-                <Route
-                    key={path}
-                    path={path}
-                    exact={exact}
-                    render={props => {
-                        return <Component {...props} {...extraProps} routes={routes}/>;
-                    }}
-                />
-                <Redirect key={path + 'redirect'} to={path}/>
-            </React.Fragment>);
-        }*/
         return (
             <Route
                 key={path}
                 path={path}
                 exact={exact}
                 component={props => {
+                    
                     if (isProtected && !localStorage.getItem('token')) {
                         return <Redirect key={'login-redirect'} to={'/login'} />
                     }
