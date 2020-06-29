@@ -34,8 +34,8 @@ module.exports = smart(baseConfig, {
         // }),
     ],
     watchOptions: {
-        aggregateTimeout: 500,
-        poll: 1000,
+        aggregateTimeout: 300,
+        poll: false,
         ignored: /node_modules/
     },
     devServer: {
@@ -51,11 +51,7 @@ module.exports = smart(baseConfig, {
             errors: true,
             warnings: true,
         },
-        // open: true,
+        open: true,
         // openPage:'dist/index.html',
     }
 });
-
-
-
-

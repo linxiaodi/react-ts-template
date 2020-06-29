@@ -69,10 +69,11 @@ module.exports = smart(baseConfig, {
                 // sourceMap: true,
             }),
         ],
+        // 解析顺序发生变化，ID 也会随之改变，所以用hash来表示每个文件的唯一值
+        moduleIds: 'hashed',
         splitChunks: {
             minSize: 3000,
             cacheGroups: {
-                // default:false,
                 vendors: {
                     // 单页面应用：使用默认的就行了，因为就只有一个入口，只需要做代码分割
                     // "initial" 针对入口文件做代码分割 | "all" | "async"(默认就是异步，针对异步加载的模块做代分割)

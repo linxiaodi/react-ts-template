@@ -27,11 +27,15 @@ const config = {
             {
                 test: /\.(jsx?|tsx?)$/,
                 // use: ['happypack/loader?id=js'],
-                use: ['babel-loader'],
+                loader: 'babel-loader',
                 // 这里是可以排除 node_modules 的，不用担心 antd 按需加载会失效
                 // 因为 babel-loader 是针对你项目中自己写的 js/jsx 文件处理解析的
                 // 当匹配到文件时，就会读取 babel.config.js 文件里面的配置，然后才做按需加载
                 exclude: [/node_modules/, /public/, /(.|_)min\.js$/],
+                options:{
+                    // 第一次启动后，后面的热更新会更快
+                    cacheDirectory: true,
+                }
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
