@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Layout, Menu } from 'antd'
-import { useHistory, matchPath } from 'react-router-dom'
-import SiderRoutes from '@/routes/SiderRoutes'
+import { useHistory } from 'react-router-dom'
+import menuData from '@/routes/SiderRoutes'
 import { RootState, RootDispatch } from '@/store'
 import { connect } from 'react-redux'
 const { Sider } = Layout
@@ -20,19 +20,16 @@ function mapDispatchToProps(dispatch: RootDispatch) {
 }
 type MapStateFromStoreProps = ReturnType<typeof mapStateToProps>
 type ComponentDispatchProps = ReturnType<typeof mapDispatchToProps>
-type SiderBarProps =  MapStateFromStoreProps & ComponentDispatchProps
+type SiderBarProps = MapStateFromStoreProps & ComponentDispatchProps
 function SiderBar(props: SiderBarProps) {
     const history = useHistory()
-    const [menuData, setMenuData] = useState(SiderRoutes)
-    useEffect(() => {
-        console.log('menuData', menuData)
-    }, [menuData])
+    const currentPathname = history.location.pathname
     function handlerClickMenu({ key, item }) {
-        if (history.location.pathname !== key) {
+        if (currentPathname !== key) {
             history.push(key)
             props.ADD_NAV_TAG({
                 title: item.node.title,
-                key
+                key,
             })
         }
     }
@@ -47,11 +44,10 @@ function SiderBar(props: SiderBarProps) {
     }
     return (
         <Sider theme="light" trigger={null} collapsible collapsed={props.isSiderCollapsed}>
-            <Menu onClick={handlerClickMenu} mode="inline" defaultOpenKeys={['1']}>
+            <Menu onClick={handlerClickMenu} mode="inline" selectedKeys={[currentPathname]}>
                 {renderMenu(menuData)}
             </Menu>
         </Sider>
     )
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SiderBar)
- 
