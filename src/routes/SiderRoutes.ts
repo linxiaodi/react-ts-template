@@ -15,6 +15,11 @@ const SiderRoutes: RouteConfigDeclaration[] = [
         name: '错误列表',
         component: React.lazy(() => import(/* webpackChunkName: "Errors"*/ '@/views/Errors')),
     },
+    {
+        path: '/home',
+        isDynamic: true,
+        component: React.lazy(() => import(/* webpackChunkName: "Home"*/ '@/views/Home')),
+    },
 ]
 
 export default SiderRoutes

@@ -1,6 +1,7 @@
 // 添加状态
 const ADD_NAV_TAG = 'ADD_NAV_TAG'
 const CUT_NAV_TAG = 'CUT_NAV_TAG'
+const TOGGLE_COLLAPSED = 'TOGGLE_COLLAPSED'
 
 import { RootDispatch, RootState } from '@/store'
 
@@ -10,10 +11,12 @@ interface TagsDec {
 }
 export interface GlobalStateDeclaration {
     tags: TagsDec[]
+    isSiderCollapsed: boolean
 }
 
 const state: GlobalStateDeclaration = {
     tags: [],
+    isSiderCollapsed: false,
 }
 
 export default {
@@ -27,6 +30,10 @@ export default {
         [CUT_NAV_TAG]: (state: GlobalStateDeclaration, payload: TagsDec): GlobalStateDeclaration => {
             const index = state.tags.findIndex(item => item.key === payload.key)
             if (index !== -1) state.tags.splice(index, 1)
+            return state
+        },
+        [TOGGLE_COLLAPSED]: (state: GlobalStateDeclaration): GlobalStateDeclaration => {
+            state.isSiderCollapsed = !state.isSiderCollapsed
             return state
         },
     },

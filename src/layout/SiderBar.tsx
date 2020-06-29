@@ -8,9 +8,9 @@ const { Sider } = Layout
 
 function mapStateToProps(state: RootState) {
     const {
-        global: { tags },
+        global: { tags, isSiderCollapsed },
     } = state
-    return { tags }
+    return { tags, isSiderCollapsed }
 }
 function mapDispatchToProps(dispatch: RootDispatch) {
     const {
@@ -20,10 +20,7 @@ function mapDispatchToProps(dispatch: RootDispatch) {
 }
 type MapStateFromStoreProps = ReturnType<typeof mapStateToProps>
 type ComponentDispatchProps = ReturnType<typeof mapDispatchToProps>
-type SiderBarProps = {
-    collapsed: boolean
-} & MapStateFromStoreProps &
-    ComponentDispatchProps
+type SiderBarProps =  MapStateFromStoreProps & ComponentDispatchProps
 function SiderBar(props: SiderBarProps) {
     const history = useHistory()
     const [menuData, setMenuData] = useState(SiderRoutes)
@@ -49,7 +46,7 @@ function SiderBar(props: SiderBarProps) {
         })
     }
     return (
-        <Sider theme="light" trigger={null} collapsible collapsed={props.collapsed}>
+        <Sider theme="light" trigger={null} collapsible collapsed={props.isSiderCollapsed}>
             <Menu onClick={handlerClickMenu} mode="inline" defaultOpenKeys={['1']}>
                 {renderMenu(menuData)}
             </Menu>

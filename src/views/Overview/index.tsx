@@ -1,17 +1,13 @@
-import React, { Component, useReducer } from 'react'
-import { Button } from 'antd';
+import React, { Component } from 'react'
+import { useHistory } from 'react-router-dom'
+import { Button } from 'antd'
 
-
-class Overview extends Component {
-  render() {
-    return (
-        <>
-        </>
-    )
-  }
+function Overview() {
+    const history = useHistory()
+    function click() {
+        history.push('/home')
+    }
+    return <Button onClick={click}>Overview</Button>
 }
 
-
-
-
-export default Overview;
+export default Overview
