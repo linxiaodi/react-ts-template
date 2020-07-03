@@ -10,7 +10,6 @@ export default class Demo extends React.Component {
     constructor(props) {
         super(props)
     }
-
     handleClick = () => {
         console.log('click')
         message.info('这是信息')

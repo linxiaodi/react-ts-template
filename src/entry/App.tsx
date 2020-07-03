@@ -18,16 +18,12 @@ class App extends React.PureComponent<AppProps> {
         this.globalContext = {}
         NProgress.start()
     }
-
-    componentWillUpdate() {
-        NProgress.start()
-    }
-
     componentDidUpdate() {
         NProgress.done()
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
     }
     componentDidMount() {
         NProgress.done()
