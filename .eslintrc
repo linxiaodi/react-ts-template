@@ -48,6 +48,7 @@
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "@typescript-eslint/camelcase": 0,
+        "react/prop-types": "off",
         // 在定义之前可以使用函数、类，因为有变量提升
         "@typescript-eslint/no-use-before-define": [
             "error",

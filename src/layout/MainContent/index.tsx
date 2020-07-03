@@ -3,9 +3,7 @@ import { Layout, Menu } from 'antd'
 import { Switch, useLocation, withRouter, RouteComponentProps } from 'react-router-dom'
 import { renderAllRoutes } from '@routes/route-loader'
 import SiderBar from '../SiderBar'
-import PropTypes from 'prop-types'
-
-const { Header, Content } = Layout
+const { Content } = Layout
 type RouterProps = RouteComponentProps<any>
 
 type propsType = {
@@ -27,7 +25,4 @@ function MainContent(props: propsType) {
         </Layout>
     )
 }
-// MainContent.propTypes = {
-//     routes: any
-// }
 export default MainContent
