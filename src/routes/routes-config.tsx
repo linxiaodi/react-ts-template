@@ -46,34 +46,32 @@ export interface RouteConfigDeclaration {
 }
 
 export const routesConfig: RouteConfigDeclaration[] = [
-           {
-               path: '/',
-               name: 'root-route',
-               component: App,
-               routes: [
-                   {
-                       path: '/login',
-                       isDynamic: true,
-                       isRedirect: true,
-                       component: React.lazy(() =>
-                           import(
-                               /* webpackChunkName: "login" */
-                               '@/views/login/Login'
-                           ),
-                       ),
-                   },
-                   {
-                       path: '/register',
-                       isDynamic: true,
-                       component: React.lazy(() =>
-                           import(/* webpackChunkName: "register"*/ '@/views/register/Register'),
-                       ),
-                   },
-                   {
-                       path: '/',
-                       component: BaseLayout,
-                       routes: SiderRoutes,
-                   },
-               ],
-           },
-       ]
+    {
+        path: '/',
+        name: 'root-route',
+        component: App,
+        routes: [
+            {
+                path: '/login',
+                isDynamic: true,
+                isRedirect: true,
+                component: React.lazy(() =>
+                    import(
+                        /* webpackChunkName: "login" */
+                        '@/views/login/Login'
+                    ),
+                ),
+            },
+            {
+                path: '/register',
+                isDynamic: true,
+                component: React.lazy(() => import(/* webpackChunkName: "register"*/ '@/views/register/Register')),
+            },
+            {
+                path: '/',
+                component: BaseLayout,
+                routes: SiderRoutes,
+            },
+        ],
+    },
+]
