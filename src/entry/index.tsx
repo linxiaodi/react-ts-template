@@ -18,7 +18,7 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN'
 /**
  * 自定义脚本
  */
-import { routesConfig } from '@routes/routes-config'
+import { routesConfig } from '@/routes/routes'
 import { renderRoutes } from '@routes/route-loader'
 import store from '@store/index'
 import history from '@store/history'
@@ -32,7 +32,7 @@ function renderApp() {
     ReactDOM.render(
         <ConfigProvider locale={zh_CN}>
             <Provider store={store}>
-                {/*<BrowserRouter>{renderRoutes(routesConfig)}</BrowserRouter>*/}
+                {/* ConnectedRouter主要是用来链接route与redux，这样route的state就会在redux里面对应变换 */}
                 <ConnectedRouter history={history}>{renderRoutes(routesConfig)}</ConnectedRouter>
             </Provider>
         </ConfigProvider>,

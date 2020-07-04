@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { RouteConfigDeclaration } from '@routes/routes-config'
+import { RouteConfigDeclaration } from '@/routes/routes'
 
 /**
  default: "模块内容"

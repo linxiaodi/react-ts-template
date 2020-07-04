@@ -1,4 +1,4 @@
-import { RouteConfigDeclaration } from './routes-config'
+import { RouteConfigDeclaration } from './routes'
 import React from 'react'
 const SiderRoutes: RouteConfigDeclaration[] = [
     {

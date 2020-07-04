@@ -45,9 +45,13 @@
         "@typescript-eslint/no-unused-vars": 0,
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-empty-interface": 0,
+        // 关闭 在函数中必须要用PropTypes
         "@typescript-eslint/explicit-function-return-type": 0,
+        // 关闭 在类中必须要用PropTypes
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "@typescript-eslint/camelcase": 0,
+        // 关闭 使用默认类型比如：Function
+        "@typescript-eslint/ban-types": 0,
         "react/prop-types": "off",
         // 在定义之前可以使用函数、类，因为有变量提升
         "@typescript-eslint/no-use-before-define": [

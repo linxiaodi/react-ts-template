@@ -1,8 +1,9 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
-import { Switch, useLocation, withRouter, RouteComponentProps } from 'react-router-dom'
+import { Switch, RouteComponentProps } from 'react-router-dom'
 import { renderAllRoutes } from '@routes/route-loader'
 import SiderBar from '../SiderBar'
+import { CSSTransition } from 'react-transition-group'
 const { Content } = Layout
 type RouterProps = RouteComponentProps<any>
 
@@ -20,7 +21,9 @@ function MainContent(props: propsType) {
             <SiderBar></SiderBar>
             <Content>
                 {/* //todo tabsBar */}
-                <Switch>{renderAllRoutes(props.routes)}</Switch>
+                <CSSTransition timeout={300}>
+                    <Switch>{renderAllRoutes(props.routes)}</Switch>
+                </CSSTransition>
             </Content>
         </Layout>
     )
