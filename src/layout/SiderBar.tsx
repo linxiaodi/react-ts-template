@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
 import { useHistory } from 'react-router-dom'
-import {getMenuData} from '@/routes/SiderRoutes'
+import { getMenuData } from '@/routes/SiderRoutes'
 import { RootState, RootDispatch } from '@/store'
 import { connect } from 'react-redux'
 const { Sider } = Layout

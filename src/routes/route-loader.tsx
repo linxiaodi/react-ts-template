@@ -40,7 +40,7 @@ export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps:
                 key={path}
                 path={path}
                 exact={exact}
-                component={(props) => {
+                component={props => {
                     if (isProtected && !localStorage.getItem('token')) {
                         return <Redirect key={'login-redirect'} to={'/login'} />
                     }
@@ -63,6 +63,6 @@ export function renderRoutes(routesConfig: RouteConfigDeclaration[], extraProps:
  * @param routes
  */
 export function renderRedirectRoute(routes: RouteConfigDeclaration[]) {
-    const { path } = routes.find((route) => route.isRedirect) || routes[0]
+    const { path } = routes.find(route => route.isRedirect) || routes[0]
     return <Redirect key={path + '-redirect'} to={path} />
 }

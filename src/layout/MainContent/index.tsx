@@ -4,7 +4,9 @@ import { Switch, RouteComponentProps } from 'react-router-dom'
 import { renderAllRoutes } from '@routes/route-loader'
 import SiderBar from '../SiderBar'
 import { CSSTransition } from 'react-transition-group'
+import TransitionContainer from '@/components/TransitionContainer'
 const { Content } = Layout
+import './index.css'
 type RouterProps = RouteComponentProps<any>
 
 type propsType = {
@@ -12,6 +14,7 @@ type propsType = {
 } & RouterProps
 function MainContent(props: propsType) {
     const isHome = props.location.pathname === '/home'
+    console.log(props)
     return isHome ? (
         <Content>
             <Switch>{renderAllRoutes(props.routes)}</Switch>
@@ -21,9 +24,9 @@ function MainContent(props: propsType) {
             <SiderBar></SiderBar>
             <Content>
                 {/* //todo tabsBar */}
-                <CSSTransition timeout={300}>
+                <TransitionContainer pageKey={props.location.key} duration={500} transition="alert">
                     <Switch>{renderAllRoutes(props.routes)}</Switch>
-                </CSSTransition>
+                </TransitionContainer>
             </Content>
         </Layout>
     )
