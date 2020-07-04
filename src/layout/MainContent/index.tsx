@@ -14,7 +14,6 @@ type propsType = {
 } & RouterProps
 function MainContent(props: propsType) {
     const isHome = props.location.pathname === '/home'
-    console.log(props)
     return isHome ? (
         <Content>
             <Switch>{renderAllRoutes(props.routes)}</Switch>
@@ -24,7 +23,7 @@ function MainContent(props: propsType) {
             <SiderBar></SiderBar>
             <Content>
                 {/* //todo tabsBar */}
-                <TransitionContainer pageKey={props.location.key} duration={500} transition="alert">
+                <TransitionContainer pageKey={props.location.key} duration={1000} transition="alert">
                     <Switch>{renderAllRoutes(props.routes)}</Switch>
                 </TransitionContainer>
             </Content>

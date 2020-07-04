@@ -14,10 +14,11 @@ type propsType = {
 }
 export default function Transition(props: propsType) {
     const { transition, duration, pageKey, children } = props
+    console.log({ transition, duration, pageKey, children })
     return (
         <TransitionGroup childFactory={childFactoryCreator({ classNames: transition, timeout: duration })}>
-            <CSSTransition classNames={transition} timeout={duration} key={pageKey}>
-                <div>{children}</div>
+            <CSSTransition timeout={duration} key={pageKey}>
+                {children}
             </CSSTransition>
         </TransitionGroup>
     )

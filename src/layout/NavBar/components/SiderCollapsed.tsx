@@ -22,14 +22,13 @@ function mapDispatchToProps(dispatch: RootDispatch) {
 }
 type MapStateFromStoreProps = ReturnType<typeof mapStateToProps>
 type ComponentDispatchProps = ReturnType<typeof mapDispatchToProps>
-type propsType =  MapStateFromStoreProps & ComponentDispatchProps
+type propsType = MapStateFromStoreProps & ComponentDispatchProps
 function SiderCollapsed(props: propsType) {
-     const collapsed =  React.createElement(props.isSiderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+    const collapsed = React.createElement(props.isSiderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
         style: { fontSize: '18px' },
         onClick: () => props.TOGGLE_COLLAPSED(),
     })
-  return <CollapseDiv>{collapsed}</CollapseDiv>
-
+    return <CollapseDiv>{collapsed}</CollapseDiv>
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiderCollapsed)
