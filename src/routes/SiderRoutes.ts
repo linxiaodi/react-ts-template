@@ -9,7 +9,6 @@ const SiderRoutes: RouteConfigDeclaration[] = [
     },
     {
         path: '/errors',
-        // exact: true,
         isDynamic: true,
         name: '错误列表',
         component: React.lazy(() => import(/* webpackChunkName: "Errors"*/ '@/views/Errors')),

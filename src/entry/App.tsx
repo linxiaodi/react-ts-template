@@ -39,9 +39,7 @@ class App extends React.Component<AppProps> {
         console.log('this.props.routes', this.props.routes)
         return (
             <GlobalContext.Provider value={this.globalContext}>
-                <Switch>
-                    <Route path="/" component={TestContainer}></Route>
-                </Switch>
+                {renderAllRoutes(this.props.routes)}
             </GlobalContext.Provider>
         )
     }

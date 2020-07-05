@@ -9,15 +9,14 @@ const HeaderStyle = styled(Header)`
     padding: 0;
     height: 50px;
 `
-function BaseLayout(props) {
+function BaseLayout() {
     return (
         <Layout style={{ height: '100%' }}>
             <Layout>
                 <HeaderStyle>
                     <NavBar></NavBar>
                 </HeaderStyle>
-                {/* 我只想更新MainContent组件，但是NavBar也会被重写渲染 */}
-                <MainContent {...props}></MainContent>
+                <MainContent></MainContent>
             </Layout>
         </Layout>
     )

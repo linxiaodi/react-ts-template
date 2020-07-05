@@ -22,13 +22,10 @@ type MapStateFromStoreProps = ReturnType<typeof mapStateToProps>
 type ComponentDispatchProps = ReturnType<typeof mapDispatchToProps>
 type SiderBarProps = MapStateFromStoreProps & ComponentDispatchProps
 function SiderBar(props: SiderBarProps) {
-    console.log('siderbar')
     const history = useHistory()
     const location = useLocation()
-    const [curPathname, setCurPathname] = useState('')
-    useEffect(() => {
-        setCurPathname(location.pathname)
-    }, [location])
+    let curPathname = ''
+    curPathname = location.pathname
     function handlerClickMenu({ key, item }) {
         if (curPathname !== key) {
             history.push(key)

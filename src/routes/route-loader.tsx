@@ -1,11 +1,5 @@
-/**
- * @author：姚嘉东
- * @description：路由转换器
- * @date：2020/3/17
- */
-
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router-dom'
 import { RouteConfigDeclaration } from '@/routes/routes'
 
 /**
@@ -24,7 +18,7 @@ import { RouteConfigDeclaration } from '@/routes/routes'
 export function renderAllRoutes(routesConfig: RouteConfigDeclaration[], extraProps: any = {}) {
     const routes = renderRoutes(routesConfig, extraProps)
     const redirect = renderRedirectRoute(routesConfig)
-    return [...routes, redirect]
+    return <Switch>{[...routes, redirect]}</Switch>
 }
 
 /**

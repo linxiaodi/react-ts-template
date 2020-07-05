@@ -1,5 +1,5 @@
 import React from 'react'
-import styled,{ ThemeProvider } from 'styled-components'
+import styled from 'styled-components'
 import Logo from '@/components/Logo'
 import SiderCollapsed from './SiderCollapsed'
 const ContainerDiv = styled.div`
@@ -9,7 +9,6 @@ const ContainerDiv = styled.div`
 `
 
 function NavLeft() {
-    console.log('render left')
     return (
         <ContainerDiv>
             <Logo />

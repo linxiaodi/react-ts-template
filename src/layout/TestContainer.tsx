@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import BaseLayout from './BaseLayout'
-import Errors from '@/views/Errors'
+// import Errors from '@/views/Errors'
 import Overview from '@/views/Overview'
 import { Layout } from 'antd'
 import NavBar from './NavBar'
@@ -29,13 +29,25 @@ const TestContainer = () => {
                     <SiderBar></SiderBar>
                     <Content>
                         {/* //todo tabsBar */}
+                        {/* 使用TransitionContainer会多渲染一次组件 打印两次Error */}
                         <TransitionContainer pageKey={history.location.key} duration={500} transition="main-content">
                             <div className="main-content">
                                 <Switch>
                                     <Route path="/">
-                                        <React.Suspense fallback="正在加载中...">
-                                            <Route path="/errors" render={() => <Errors></Errors>}></Route>
-                                        </React.Suspense>
+                                        <Route
+                                            path="/errors"
+                                            render={() => {
+                                                const Errors = React.lazy(() =>
+                                                    import(/* webpackChunkName: "Errors"*/ '@/views/Errors'),
+                                                )
+                                                console.log('Errors', Errors)
+                                                return (
+                                                    <React.Suspense fallback="正在加载中...">
+                                                        <Errors></Errors>
+                                                    </React.Suspense>
+                                                )
+                                            }}
+                                        ></Route>
                                         <React.Suspense fallback="正在加载中...">
                                             <Route path="/overview" render={() => <Overview></Overview>}></Route>
                                         </React.Suspense>

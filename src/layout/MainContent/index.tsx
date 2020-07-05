@@ -1,32 +1,30 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
-import { Switch, RouteComponentProps } from 'react-router-dom'
+import { Switch, RouteComponentProps, useLocation } from 'react-router-dom'
 import { renderAllRoutes } from '@routes/route-loader'
 import SiderBar from '../SiderBar'
-import { CSSTransition } from 'react-transition-group'
 import TransitionContainer from '@/components/TransitionContainer'
 const { Content } = Layout
 import './index.css'
 type RouterProps = RouteComponentProps<any>
-
-type propsType = {
-    routes?: any
-} & RouterProps
-function MainContent(props: propsType) {
-    const isHome = props.location.pathname === '/home'
-    return isHome ? (
+import SiderRoutes from '@/routes/SiderRoutes'
+function MainContent() {
+    const location = useLocation()
+    const isHome = location.pathname === '/home'
+    const CommonContent = (
         <Content>
-            <Switch>{renderAllRoutes(props.routes)}</Switch>
+            {/* //todo tabsBar */}
+            <TransitionContainer pageKey={location.key} duration={500} transition="main-content">
+                <div className="main-content">{renderAllRoutes(SiderRoutes)}</div>
+            </TransitionContainer>
         </Content>
+    )
+    return isHome ? (
+        CommonContent
     ) : (
         <Layout>
             <SiderBar></SiderBar>
-            <Content>
-                {/* //todo tabsBar */}
-                <TransitionContainer pageKey={props.location.key} duration={1000} transition="alert">
-                    <Switch>{renderAllRoutes(props.routes)}</Switch>
-                </TransitionContainer>
-            </Content>
+            {CommonContent}
         </Layout>
     )
 }
