@@ -1,12 +1,11 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
-import { Switch, RouteComponentProps, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { renderAllRoutes } from '@routes/route-loader'
 import SiderBar from '../SiderBar'
 import TransitionContainer from '@/components/TransitionContainer'
 const { Content } = Layout
 import './index.css'
-type RouterProps = RouteComponentProps<any>
 import SiderRoutes from '@/routes/SiderRoutes'
 function MainContent() {
     const location = useLocation()
