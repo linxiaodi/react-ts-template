@@ -33,8 +33,12 @@ const TestContainer = () => {
                             <div className="main-content">
                                 <Switch>
                                     <Route path="/">
-                                        <Route path="/errors" render={() => <Errors></Errors>}></Route>
-                                        <Route path="/overview" render={() => <Overview></Overview>}></Route>
+                                        <React.Suspense fallback="正在加载中...">
+                                            <Route path="/errors" render={() => <Errors></Errors>}></Route>
+                                        </React.Suspense>
+                                        <React.Suspense fallback="正在加载中...">
+                                            <Route path="/overview" render={() => <Overview></Overview>}></Route>
+                                        </React.Suspense>
                                     </Route>
                                 </Switch>
                             </div>
