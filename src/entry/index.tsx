@@ -22,6 +22,8 @@ import { routesConfig } from '@/routes/routes'
 import { renderRoutes } from '@routes/route-loader'
 import store from '@store/index'
 import history from '@store/history'
+import { Route, Switch } from 'react-router-dom'
+import App from './App'
 
 /**
  * 组件
@@ -33,7 +35,11 @@ function renderApp() {
         <ConfigProvider locale={zh_CN}>
             <Provider store={store}>
                 {/* ConnectedRouter主要是用来链接route与redux，这样route的state就会在redux里面对应变换 */}
-                <ConnectedRouter history={history}>{renderRoutes(routesConfig)}</ConnectedRouter>
+                <ConnectedRouter history={history}>
+                    <Switch>
+                        <Route path="/" component={App}></Route>
+                    </Switch>
+                </ConnectedRouter>
             </Provider>
         </ConfigProvider>,
         document.getElementById('root'),

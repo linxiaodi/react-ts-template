@@ -1,16 +1,26 @@
-.alert-enter {
-  opacity: 0;
-  transform: scale(0.9);
+.main-content {
+  position: absolute;
+  left: 15px;
+  right: 15px;
 }
-.alert-enter-active {
+
+.main-content-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.main-content-enter-active {
   opacity: 1;
-  transform: translateX(0);
+  transform: scale(1);
   transition: opacity 300ms, transform 300ms;
 }
-.alert-exit {
+
+.main-content-exit {
   opacity: 1;
+  transform: scale(1);
 }
-.alert-exit-active {
+
+.main-content-exit-active {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;

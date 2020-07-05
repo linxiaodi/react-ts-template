@@ -12,7 +12,7 @@ type propsType = {
     pageKey: any
     children: any
 }
-export default function Transition(props: propsType) {
+export default function TransitionContainer(props: propsType) {
     const { transition, duration, pageKey, children } = props
     console.log({ transition, duration, pageKey, children })
     return (
@@ -23,7 +23,7 @@ export default function Transition(props: propsType) {
         </TransitionGroup>
     )
 }
-Transition.defaultProps = {
+TransitionContainer.defaultProps = {
     transition: '',
     duration: 0,
 }

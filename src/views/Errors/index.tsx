@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Button } from 'antd'
 import { CSSTransition } from 'react-transition-group'
 import './index.css'
-function Error() {
+function Errors() {
     const history = useHistory()
     const [isShow, setIsShow] = useState(false)
     function click() {
@@ -26,4 +26,4 @@ function Error() {
     )
 }
 
-export default Error
+export default Errors
