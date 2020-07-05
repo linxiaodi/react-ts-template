@@ -19,7 +19,7 @@ function Errors() {
     return (
         <>
             <Button onClick={handleClick}>click</Button>
-            <CSSTransition timeout={300} classNames="alert" in={isShow}>
+            <CSSTransition timeout={30000} classNames="alert" in={isShow}>
                 <div>{isShow ? 'true' : 'false'}</div>
             </CSSTransition>
         </>

@@ -8,6 +8,7 @@ import NavBar from './NavBar'
 import SiderBar from './SiderBar'
 import styled from 'styled-components'
 import TransitionContainer from '@/components/TransitionContainer'
+import './MainContent/index.css'
 const { Header, Content } = Layout
 const HeaderStyle = styled(Header)`
     background-color: white;
@@ -28,13 +29,15 @@ const TestContainer = () => {
                     <SiderBar></SiderBar>
                     <Content>
                         {/* //todo tabsBar */}
-                        <TransitionContainer pageKey={history.location.key} duration={1000} transition="main-content">
-                            <Switch>
-                                <Route path="/">
-                                    <Route path="/errors" render={() => <Errors></Errors>}></Route>
-                                    <Route path="/overview" render={() => <Overview></Overview>}></Route>
-                                </Route>
-                            </Switch>
+                        <TransitionContainer pageKey={history.location.key} duration={500} transition="main-content">
+                            <div className="main-content">
+                                <Switch>
+                                    <Route path="/">
+                                        <Route path="/errors" render={() => <Errors></Errors>}></Route>
+                                        <Route path="/overview" render={() => <Overview></Overview>}></Route>
+                                    </Route>
+                                </Switch>
+                            </div>
                         </TransitionContainer>
                     </Content>
                 </Layout>
