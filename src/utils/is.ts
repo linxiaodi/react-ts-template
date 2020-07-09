@@ -1,18 +1,13 @@
-/**
- * @author: 姚嘉东
- * @description: 变量类型检测工具方法
- */
+function isType(type: string) {
+    return function (value: any): boolean {
+        return Object.prototype.toString.call(value) === `[object ${type}]`
+    }
+}
 
 /**
  * 检测变量类型
  * @param type
  */
-function isType(type) {
-    return function(value): boolean {
-        return Object.prototype.toString.call(value) === `[object ${type}]`;
-    };
-}
-
 export const variableTypeDetection = {
     isNumber: isType('Number'),
     isString: isType('String'),
@@ -23,4 +18,4 @@ export const variableTypeDetection = {
     isFunction: isType('Function'),
     isObject: isType('Object'),
     isArray: isType('Array'),
-};
+}

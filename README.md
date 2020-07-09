@@ -113,9 +113,6 @@ react-ts-project-template
 
     - `//FIXME`：说明标识处代码需要修正，甚至代码是错误的，不能工作，需要修复，如何修正会在说明中简略说明。
 
-- 业务组件需要具名，不要默认用 index.jsx/index.tsx ，否则在全局搜索某个变量名时，会出现一堆的 index.jsx / index.tsx 文件，看不清是哪个文件
-
-- 后端接口统一放在 api 目录下维护，统一通过 api.xxx 的形式调用接口
 
 
                 
