@@ -17,15 +17,11 @@ react-ts-project-template
 ├── README.md
 ├── src
 │ ├── assets # 存放会被 Webpack 处理的静态资源文件：一般是自己写的 js、css 或者图片等静态资源（不要什么都往里放，一般放“能被共用、很少变动”的文件，像 routes、d.ts、config 这些文件不会共用就不需要放进去）
-│ │ ├── fonts # iconfont 目录
-│ │ ├── images # 图片资源目录
-│ │ └── styles # 全局样式目录
 │ ├── common # 存放项目通用文件
 │ │ ├── event-center.ts # 事件中心
 │ │ └── global-context.ts # 全局上下文
 │ ├── components # 项目中通用的业务组件目录
 │ ├── config # 项目配置文件
-│ ├── custom-hooks # 项目中通用的自定义 hooks 目录
 │ ├── d.ts # 项目中 TS 声明文件目录
 │ │ ├── global.d.ts # 项目中全局的 TS 声明文件
 │ │ └── rematch-store.d.ts # 针对 rematch 的 TS 声明文件
@@ -38,12 +34,12 @@ react-ts-project-template
 │ ├── library # 组件库
 │ ├── routes # 路由目录
 │ │ ├── route-loader.tsx # 路由转化器
-│ │ └── routes-config.tsx # 路由配置入口文件
+│ │ └── routes.tsx # 路由配置入口文件
 │ ├── services # 和后端相关的文件目录
 │ │ ├── api # 调用后端接口定义目录（统一维护）
 │ │ │ ├── index.ts
 │ │ ├── axios.ts # 基于 axios 二次封装
-│ │ ├── config.ts # 端口配置文件
+│ │ ├── config.ts # 
 │ ├── store # redux 仓库
 │ │ ├── connect.ts # 针对 react-redux 中的 connect 类型声明
 │ │ ├── history.ts 
@@ -51,15 +47,6 @@ react-ts-project-template
 │ │ └── models # 数据模型目录
 │ ├── utils # 全局通用工具函数目录
 │ └── views # 页面视图层
-│ │ ├── home
-│ │ │ ├── home.less
-│ │ │ └── Home.tsx
-│ │ ├── login
-│ │ │ ├── login.less
-│ │ │ └── Login.tsx
-│ │ └── register
-│ │ │ ├── register.less
-│ │ │ └── Register.tsx
 └── tsconfig.json # TS 配置文件
 ```
 
@@ -84,8 +71,6 @@ react-ts-project-template
 
 - 项目支持配置式路由
 
-- 项目中已经构建了一个事件中心（发布订阅）
-
 - 项目中默认配置了一些常用工具函数
 
 - 项目中集成了 `rematch` ，简化 `redux` 的使用 
@@ -93,8 +78,6 @@ react-ts-project-template
 - 项目中针对 `axios` 做了二次封装
 
 - 项目使用 `Eslint + Prettier` 统一代码风格
-
-- [在 WebStorm 中使用 Prettier 自动格式化代码]（）
 
 - 项目使用 `husky` 在 `git commit` 提交代码前，进行代码风格校验并修复
 
@@ -112,7 +95,5 @@ react-ts-project-template
     - `//TODO`：说明在标识处有功能代码待编写，待实现的功能在说明中会简略说明。
 
     - `//FIXME`：说明标识处代码需要修正，甚至代码是错误的，不能工作，需要修复，如何修正会在说明中简略说明。
-
-
 
                 
