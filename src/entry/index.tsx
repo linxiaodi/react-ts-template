@@ -14,7 +14,6 @@ import { Provider } from 'react-redux'
 import { ConfigProvider } from 'antd'
 import zh_CN from 'antd/lib/locale-provider/zh_CN'
 // import 'moment/locale/zh-cn';
-
 /**
  * 自定义脚本
  */
@@ -22,8 +21,6 @@ import { routesConfig } from '@/routes/routes'
 import { renderAllRoutes } from '@routes/route-loader'
 import store from '@store/index'
 import history from '@store/history'
-import { Route, Switch } from 'react-router-dom'
-import App from './App'
 
 /**
  * 组件

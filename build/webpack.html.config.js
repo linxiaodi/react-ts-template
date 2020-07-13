@@ -19,9 +19,6 @@ if (process.env.NODE_ENV === 'development') {
         //     js: ['//at.alicdn.com/t/font_xxx.js'],
         //     css: ['//at.alicdn.com/t/font_xxx.css']
         // },
-        dll: {
-            js: ['/public/dll/dllLibs.dll.js']
-        }
     });
 }
 

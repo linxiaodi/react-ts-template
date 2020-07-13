@@ -7,7 +7,6 @@
     "author": "yjd",
     "license": "ISC",
     "scripts": {
-        "dll": "webpack --config build/webpack.dll.config.js",
         "dev": "cross-env NODE_ENV='development' webpack-dev-server  --config build/webpack.dev.config.js   --colors",
         "build": "cross-env NODE_ENV='production' webpack --config build/webpack.prod.config.js --progress --colors ",
         "buildSM": "cross-env NODE_ENV='production' --SPEED_MEASUREMENT=true  webpack --config build/webpack.prod.config.js --progress --colors ",
@@ -98,6 +97,7 @@
         "connected-react-router": "^6.8.0",
         "history": "^4.10.1",
         "lodash": "^4.17.15",
+        "mito-browser": "^1.0.0",
         "moment": "^2.27.0",
         "normalize.css": "^8.0.1",
         "nprogress": "^0.2.0",
