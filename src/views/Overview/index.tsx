@@ -9,9 +9,8 @@ function Overview() {
     }
     return (
         <>
-            <Button onClick={click}>Oveasdasdasasasdasdasdarview</Button>
-            1231
-            <div>1231asdaasdasdasdasdas奥术大师大奥所大所大所ds</div>
+            <div>当前是概览</div>
+            <Button onClick={click}>跳转到Home</Button>
         </>
     )
 }
